@@ -1,0 +1,202 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+ComError            0x4               /tmp/ccmQo5DA.o
+ComRXBuffer         0x4c              /tmp/ccmQo5DA.o
+ComTXBuffer         0x4c              /tmp/ccmQo5DA.o
+ComOpen             0x4               /tmp/ccmQo5DA.o
+ComBusy             0x4               /tmp/ccmQo5DA.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+flash            0x08000000         0x00040000
+sram1            0x20000000         0x0000c000
+sram2            0x10000000         0x00004000
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD /tmp/ccQtKLfQ.o
+LOAD /tmp/ccMqbY8b.o
+LOAD /tmp/ccmQo5DA.o
+LOAD /usr/local/gcc-arm-none-eabi-5_4-2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/libgcc.a
+START GROUP
+LOAD /usr/local/gcc-arm-none-eabi-5_4-2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/libgcc.a
+LOAD /usr/local/gcc-arm-none-eabi-5_4-2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/libg.a
+LOAD /usr/local/gcc-arm-none-eabi-5_4-2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/libc.a
+END GROUP
+                0x08000000                . = ORIGIN (flash)
+
+.text           0x08000000      0x8e8
+ *(.vectors)
+ .vectors       0x08000000      0x18c /tmp/ccQtKLfQ.o
+                0x08000000                Vectors
+ *(.text)
+ .text          0x0800018c       0x7c /tmp/ccQtKLfQ.o
+                0x0800018c                init
+                0x08000200                Default_Handler
+ .text          0x08000208      0x124 /tmp/ccMqbY8b.o
+                0x08000208                delay
+                0x08000228                initClocks
+                0x08000298                configPins
+                0x080002d0                main
+ .text          0x0800032c      0x5bc /tmp/ccmQo5DA.o
+                0x0800032c                ReadCom
+                0x0800039c                WriteCom
+                0x08000430                initUART
+                0x080005d8                isr_usart2
+                0x08000604                usart_rx
+                0x08000634                usart_tx
+                0x080006ac                PutBuf
+                0x08000708                GetBuf
+                0x08000754                GetBufCount
+                0x0800076c                available
+                0x0800078c                eputs
+                0x080007c8                egets
+                0x08000844                HexDigit
+                0x08000874                printHex
+                0x080008d4                bytesAvailable
+
+.glue_7         0x080008e8        0x0
+ .glue_7        0x080008e8        0x0 linker stubs
+
+.glue_7t        0x080008e8        0x0
+ .glue_7t       0x080008e8        0x0 linker stubs
+
+.vfp11_veneer   0x080008e8        0x0
+ .vfp11_veneer  0x080008e8        0x0 linker stubs
+
+.v4_bx          0x080008e8        0x0
+ .v4_bx         0x080008e8        0x0 linker stubs
+
+.iplt           0x080008e8        0x0
+ .iplt          0x080008e8        0x0 /tmp/ccQtKLfQ.o
+
+.rel.dyn        0x080008e8        0x0
+ .rel.iplt      0x080008e8        0x0 /tmp/ccQtKLfQ.o
+
+.rodata         0x080008e8       0x29
+ .rodata        0x080008e8       0x29 /tmp/ccMqbY8b.o
+                0x20000000                . = ORIGIN (sram1)
+
+.data           0x20000000        0x0 load address 0x08000911
+                0x08000911                INIT_DATA_VALUES = LOADADDR (.data)
+                0x20000000                INIT_DATA_START = .
+ *(.data)
+ .data          0x20000000        0x0 /tmp/ccQtKLfQ.o
+ .data          0x20000000        0x0 /tmp/ccMqbY8b.o
+ .data          0x20000000        0x0 /tmp/ccmQo5DA.o
+                0x20000000                INIT_DATA_END = .
+                0x20000000                BSS_START = .
+
+.igot.plt       0x20000000        0x0 load address 0x08000911
+ .igot.plt      0x20000000        0x0 /tmp/ccQtKLfQ.o
+
+.bss            0x20000000       0xa4 load address 0x08000911
+ *(.bss)
+ .bss           0x20000000        0x0 /tmp/ccQtKLfQ.o
+ .bss           0x20000000        0x0 /tmp/ccMqbY8b.o
+ .bss           0x20000000        0x0 /tmp/ccmQo5DA.o
+ COMMON         0x20000000       0xa4 /tmp/ccmQo5DA.o
+                0x20000000                ComError
+                0x20000004                ComRXBuffer
+                0x20000050                ComTXBuffer
+                0x2000009c                ComOpen
+                0x200000a0                ComBusy
+                0x200000a4                BSS_END = .
+OUTPUT(main.elf elf32-littlearm)
+
+.debug_info     0x00000000      0x658
+ .debug_info    0x00000000      0x155 /tmp/ccQtKLfQ.o
+ .debug_info    0x00000155      0x10e /tmp/ccMqbY8b.o
+ .debug_info    0x00000263      0x3f5 /tmp/ccmQo5DA.o
+
+.debug_abbrev   0x00000000      0x323
+ .debug_abbrev  0x00000000       0xc9 /tmp/ccQtKLfQ.o
+ .debug_abbrev  0x000000c9       0xb1 /tmp/ccMqbY8b.o
+ .debug_abbrev  0x0000017a      0x1a9 /tmp/ccmQo5DA.o
+
+.debug_aranges  0x00000000       0x60
+ .debug_aranges
+                0x00000000       0x20 /tmp/ccQtKLfQ.o
+ .debug_aranges
+                0x00000020       0x20 /tmp/ccMqbY8b.o
+ .debug_aranges
+                0x00000040       0x20 /tmp/ccmQo5DA.o
+
+.debug_line     0x00000000      0x3a7
+ .debug_line    0x00000000       0xf3 /tmp/ccQtKLfQ.o
+ .debug_line    0x000000f3      0x108 /tmp/ccMqbY8b.o
+ .debug_line    0x000001fb      0x1ac /tmp/ccmQo5DA.o
+
+.debug_str      0x00000000      0x2c1
+ .debug_str     0x00000000      0x17f /tmp/ccQtKLfQ.o
+                                0x1c4 (size before relaxing)
+ .debug_str     0x0000017f       0x28 /tmp/ccMqbY8b.o
+                                0x175 (size before relaxing)
+ .debug_str     0x000001a7      0x11a /tmp/ccmQo5DA.o
+                                0x27e (size before relaxing)
+
+.comment        0x00000000       0x6e
+ .comment       0x00000000       0x6e /tmp/ccQtKLfQ.o
+                                 0x6f (size before relaxing)
+ .comment       0x0000006e       0x6f /tmp/ccMqbY8b.o
+ .comment       0x0000006e       0x6f /tmp/ccmQo5DA.o
+
+.ARM.attributes
+                0x00000000       0x33
+ .ARM.attributes
+                0x00000000       0x33 /tmp/ccQtKLfQ.o
+ .ARM.attributes
+                0x00000033       0x33 /tmp/ccMqbY8b.o
+ .ARM.attributes
+                0x00000066       0x33 /tmp/ccmQo5DA.o
+
+.debug_frame    0x00000000      0x308
+ .debug_frame   0x00000000       0x4c /tmp/ccQtKLfQ.o
+ .debug_frame   0x0000004c       0x98 /tmp/ccMqbY8b.o
+ .debug_frame   0x000000e4      0x224 /tmp/ccmQo5DA.o
+
+Cross Reference Table
+
+Symbol                                            File
+BSS_END                                           /tmp/ccQtKLfQ.o
+BSS_START                                         /tmp/ccQtKLfQ.o
+ComBusy                                           /tmp/ccmQo5DA.o
+ComError                                          /tmp/ccmQo5DA.o
+ComOpen                                           /tmp/ccmQo5DA.o
+ComRXBuffer                                       /tmp/ccmQo5DA.o
+ComTXBuffer                                       /tmp/ccmQo5DA.o
+Default_Handler                                   /tmp/ccQtKLfQ.o
+GetBuf                                            /tmp/ccmQo5DA.o
+GetBufCount                                       /tmp/ccmQo5DA.o
+HexDigit                                          /tmp/ccmQo5DA.o
+INIT_DATA_END                                     /tmp/ccQtKLfQ.o
+INIT_DATA_START                                   /tmp/ccQtKLfQ.o
+INIT_DATA_VALUES                                  /tmp/ccQtKLfQ.o
+PutBuf                                            /tmp/ccmQo5DA.o
+ReadCom                                           /tmp/ccmQo5DA.o
+Vectors                                           /tmp/ccQtKLfQ.o
+WriteCom                                          /tmp/ccmQo5DA.o
+available                                         /tmp/ccmQo5DA.o
+                                                  /tmp/ccMqbY8b.o
+bytesAvailable                                    /tmp/ccmQo5DA.o
+configPins                                        /tmp/ccMqbY8b.o
+delay                                             /tmp/ccMqbY8b.o
+egets                                             /tmp/ccmQo5DA.o
+                                                  /tmp/ccMqbY8b.o
+eputs                                             /tmp/ccmQo5DA.o
+                                                  /tmp/ccMqbY8b.o
+init                                              /tmp/ccQtKLfQ.o
+initClocks                                        /tmp/ccMqbY8b.o
+initUART                                          /tmp/ccmQo5DA.o
+                                                  /tmp/ccMqbY8b.o
+isr_usart2                                        /tmp/ccmQo5DA.o
+                                                  /tmp/ccQtKLfQ.o
+main                                              /tmp/ccMqbY8b.o
+                                                  /tmp/ccQtKLfQ.o
+printHex                                          /tmp/ccmQo5DA.o
+usart_rx                                          /tmp/ccmQo5DA.o
+usart_tx                                          /tmp/ccmQo5DA.o

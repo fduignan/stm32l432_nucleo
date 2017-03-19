@@ -1,0 +1,125 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+flash            0x08000000         0x00040000
+sram1            0x20000000         0x0000c000
+sram2            0x10000000         0x00004000
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD /tmp/ccWWjwly.o
+LOAD /tmp/cceVG5RN.o
+LOAD /usr/local/gcc-arm-none-eabi-5_4-2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/libgcc.a
+START GROUP
+LOAD /usr/local/gcc-arm-none-eabi-5_4-2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/libgcc.a
+LOAD /usr/local/gcc-arm-none-eabi-5_4-2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/libg.a
+LOAD /usr/local/gcc-arm-none-eabi-5_4-2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/libc.a
+END GROUP
+                0x08000000                . = ORIGIN (flash)
+
+.text           0x08000000      0x288
+ *(.vectors)
+ .vectors       0x08000000      0x18c /tmp/ccWWjwly.o
+                0x08000000                Vectors
+ *(.text)
+ .text          0x0800018c       0x7c /tmp/ccWWjwly.o
+                0x0800018c                init
+                0x08000200                Default_Handler
+ .text          0x08000208       0x80 /tmp/cceVG5RN.o
+                0x08000208                delay
+                0x08000228                main
+
+.glue_7         0x08000288        0x0
+ .glue_7        0x08000288        0x0 linker stubs
+
+.glue_7t        0x08000288        0x0
+ .glue_7t       0x08000288        0x0 linker stubs
+
+.vfp11_veneer   0x08000288        0x0
+ .vfp11_veneer  0x08000288        0x0 linker stubs
+
+.v4_bx          0x08000288        0x0
+ .v4_bx         0x08000288        0x0 linker stubs
+
+.iplt           0x08000288        0x0
+ .iplt          0x08000288        0x0 /tmp/ccWWjwly.o
+
+.rel.dyn        0x08000288        0x0
+ .rel.iplt      0x08000288        0x0 /tmp/ccWWjwly.o
+                0x20000000                . = ORIGIN (sram1)
+
+.data           0x20000000        0x0 load address 0x08000288
+                0x08000288                INIT_DATA_VALUES = LOADADDR (.data)
+                0x20000000                INIT_DATA_START = .
+ *(.data)
+ .data          0x20000000        0x0 /tmp/ccWWjwly.o
+ .data          0x20000000        0x0 /tmp/cceVG5RN.o
+                0x20000000                INIT_DATA_END = .
+                0x20000000                BSS_START = .
+
+.igot.plt       0x20000000        0x0 load address 0x08000288
+ .igot.plt      0x20000000        0x0 /tmp/ccWWjwly.o
+
+.bss            0x20000000        0x0 load address 0x08000288
+ *(.bss)
+ .bss           0x20000000        0x0 /tmp/ccWWjwly.o
+ .bss           0x20000000        0x0 /tmp/cceVG5RN.o
+                0x20000000                BSS_END = .
+OUTPUT(main.elf elf32-littlearm)
+
+.debug_info     0x00000000      0x233
+ .debug_info    0x00000000      0x155 /tmp/ccWWjwly.o
+ .debug_info    0x00000155       0xde /tmp/cceVG5RN.o
+
+.debug_abbrev   0x00000000      0x141
+ .debug_abbrev  0x00000000       0xc9 /tmp/ccWWjwly.o
+ .debug_abbrev  0x000000c9       0x78 /tmp/cceVG5RN.o
+
+.debug_aranges  0x00000000       0x40
+ .debug_aranges
+                0x00000000       0x20 /tmp/ccWWjwly.o
+ .debug_aranges
+                0x00000020       0x20 /tmp/cceVG5RN.o
+
+.debug_line     0x00000000      0x1f6
+ .debug_line    0x00000000       0xf3 /tmp/ccWWjwly.o
+ .debug_line    0x000000f3      0x103 /tmp/cceVG5RN.o
+
+.debug_str      0x00000000      0x1a3
+ .debug_str     0x00000000      0x17f /tmp/ccWWjwly.o
+                                0x1c4 (size before relaxing)
+ .debug_str     0x0000017f       0x24 /tmp/cceVG5RN.o
+                                0x178 (size before relaxing)
+
+.comment        0x00000000       0x6e
+ .comment       0x00000000       0x6e /tmp/ccWWjwly.o
+                                 0x6f (size before relaxing)
+ .comment       0x0000006e       0x6f /tmp/cceVG5RN.o
+
+.ARM.attributes
+                0x00000000       0x33
+ .ARM.attributes
+                0x00000000       0x33 /tmp/ccWWjwly.o
+ .ARM.attributes
+                0x00000033       0x33 /tmp/cceVG5RN.o
+
+.debug_frame    0x00000000       0xa0
+ .debug_frame   0x00000000       0x4c /tmp/ccWWjwly.o
+ .debug_frame   0x0000004c       0x54 /tmp/cceVG5RN.o
+
+Cross Reference Table
+
+Symbol                                            File
+BSS_END                                           /tmp/ccWWjwly.o
+BSS_START                                         /tmp/ccWWjwly.o
+Default_Handler                                   /tmp/ccWWjwly.o
+INIT_DATA_END                                     /tmp/ccWWjwly.o
+INIT_DATA_START                                   /tmp/ccWWjwly.o
+INIT_DATA_VALUES                                  /tmp/ccWWjwly.o
+Vectors                                           /tmp/ccWWjwly.o
+delay                                             /tmp/cceVG5RN.o
+init                                              /tmp/ccWWjwly.o
+main                                              /tmp/cceVG5RN.o
+                                                  /tmp/ccWWjwly.o
