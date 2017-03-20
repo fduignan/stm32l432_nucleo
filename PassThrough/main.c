@@ -143,7 +143,6 @@ void ADC_ISR()
     // The green LED output is used to measure the execution time of the ISR
     GPIOB_ODR |= BIT3;   // Turn on green led
     ADC1_ISR = BIT3;     // clear ADC interrupt flag
-    GPIOB_ODR |= BIT3;   // Toggle green led
     ADCValue = ADC1_DR;  // Read latest value from ADC conversion
     writeDAC(ADCValue);  // Write new output to DAC
     GPIOB_ODR &= ~BIT3;  // Turn off green led
