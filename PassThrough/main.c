@@ -4,7 +4,7 @@
 // This program demonstrates timer driven data acquisition on
 // the stm32l432 nucleo board. Data acquired via the ADC is
 // simply passed back out through the DAC.
-// Sampling rates of up to 4MHz are possible.
+// Stable sampling rates of up to about 1.5MHz are possible.
 // DAC on PA4, DAC1_OUT1 (Labelled A3 on stm32l432 Nucleo board)
 // ADC on PA3, ADC1_IN8  (Labelled A2 on stm32l432 Nucleo board)
 // Will use Timer 2 to trigger ADC conversions and enable interrupts
@@ -26,7 +26,7 @@ int main()
     configPins();
     initUART(9600);
     initDAC();
-    initADC(4000000);
+    initADC(1000000);
     enable_interrupts();
     displayRegisters();
     while(1)
