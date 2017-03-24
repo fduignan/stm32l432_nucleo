@@ -1,0 +1,251 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+x                   0x14              /tmp/ccNqA6AK.o
+ComError            0x4               /tmp/ccyOJUJa.o
+ComRXBuffer         0x4c              /tmp/ccyOJUJa.o
+ComTXBuffer         0x4c              /tmp/ccyOJUJa.o
+y                   0x14              /tmp/ccNqA6AK.o
+ComOpen             0x4               /tmp/ccyOJUJa.o
+ComBusy             0x4               /tmp/ccyOJUJa.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+flash            0x08000000         0x00040000
+sram1            0x20000000         0x0000c000
+sram2            0x10000000         0x00004000
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD /tmp/ccoMA8up.o
+LOAD /tmp/ccNqA6AK.o
+LOAD /tmp/ccyOJUJa.o
+LOAD /usr/local/gcc-arm-none-eabi-5_4-2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a
+START GROUP
+LOAD /usr/local/gcc-arm-none-eabi-5_4-2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/fpu/libgcc.a
+LOAD /usr/local/gcc-arm-none-eabi-5_4-2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a
+LOAD /usr/local/gcc-arm-none-eabi-5_4-2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/fpu/libc.a
+END GROUP
+                0x08000000                . = ORIGIN (flash)
+
+.text           0x08000000      0xbcc
+ *(.vectors)
+ .vectors       0x08000000      0x18c /tmp/ccoMA8up.o
+                0x08000000                Vectors
+ *(.text)
+ .text          0x0800018c       0x48 /tmp/ccoMA8up.o
+                0x0800018c                Default_Handler
+                0x08000190                init
+ .text          0x080001d4      0x540 /tmp/ccNqA6AK.o
+                0x080001d4                initFPU
+                0x080001ec                initFilter
+                0x0800020c                filter
+                0x08000294                delay
+                0x08000298                initClocks
+                0x080002e8                configPins
+                0x08000310                initDAC
+                0x08000364                initADC
+                0x0800048c                ADC_ISR
+                0x0800056c                writeDAC
+                0x08000578                displayRegisters
+ .text          0x08000714      0x4b8 /tmp/ccyOJUJa.o
+                0x08000714                ReadCom
+                0x0800077c                WriteCom
+                0x08000830                initUART
+                0x08000980                usart_rx
+                0x080009d0                usart_tx
+                0x08000a3c                isr_usart2
+                0x08000a64                PutBuf
+                0x08000a9c                GetBuf
+                0x08000ac4                GetBufCount
+                0x08000ac8                available
+                0x08000ad8                transmitting
+                0x08000ae8                eputs
+                0x08000b18                egets
+                0x08000b80                HexDigit
+                0x08000b8c                printHex
+                0x08000bc0                bytesAvailable
+
+.glue_7         0x08000bcc        0x0
+ .glue_7        0x08000bcc        0x0 linker stubs
+
+.glue_7t        0x08000bcc        0x0
+ .glue_7t       0x08000bcc        0x0 linker stubs
+
+.vfp11_veneer   0x08000bcc        0x0
+ .vfp11_veneer  0x08000bcc        0x0 linker stubs
+
+.v4_bx          0x08000bcc        0x0
+ .v4_bx         0x08000bcc        0x0 linker stubs
+
+.iplt           0x08000bcc        0x0
+ .iplt          0x08000bcc        0x0 /tmp/ccoMA8up.o
+
+.text.startup   0x08000bcc       0x80
+ .text.startup  0x08000bcc       0x80 /tmp/ccNqA6AK.o
+                0x08000bcc                main
+
+.rodata         0x08000c4c       0x28
+ .rodata        0x08000c4c       0x28 /tmp/ccNqA6AK.o
+                0x08000c4c                b
+                0x08000c60                a
+
+.rodata.str1.4  0x08000c74       0xec
+ .rodata.str1.4
+                0x08000c74       0xec /tmp/ccNqA6AK.o
+                                 0xe9 (size before relaxing)
+
+.rel.dyn        0x08000d60        0x0
+ .rel.iplt      0x08000d60        0x0 /tmp/ccoMA8up.o
+                0x20000000                . = ORIGIN (sram1)
+
+.data           0x20000000        0x0 load address 0x08000d60
+                0x08000d60                INIT_DATA_VALUES = LOADADDR (.data)
+                0x20000000                INIT_DATA_START = .
+ *(.data)
+ .data          0x20000000        0x0 /tmp/ccoMA8up.o
+ .data          0x20000000        0x0 /tmp/ccNqA6AK.o
+ .data          0x20000000        0x0 /tmp/ccyOJUJa.o
+                0x20000000                INIT_DATA_END = .
+                0x20000000                BSS_START = .
+
+.igot.plt       0x20000000        0x0 load address 0x08000d60
+ .igot.plt      0x20000000        0x0 /tmp/ccoMA8up.o
+
+.bss            0x20000000       0xd0 load address 0x08000d60
+ *(.bss)
+ .bss           0x20000000        0x0 /tmp/ccoMA8up.o
+ .bss           0x20000000        0x4 /tmp/ccNqA6AK.o
+                0x20000000                ADCValue
+ .bss           0x20000004        0x0 /tmp/ccyOJUJa.o
+ COMMON         0x20000004       0x28 /tmp/ccNqA6AK.o
+                0x20000004                x
+                0x20000018                y
+ COMMON         0x2000002c       0xa4 /tmp/ccyOJUJa.o
+                0x2000002c                ComError
+                0x20000030                ComRXBuffer
+                0x2000007c                ComTXBuffer
+                0x200000c8                ComOpen
+                0x200000cc                ComBusy
+                0x200000d0                BSS_END = .
+OUTPUT(main.elf elf32-littlearm)
+
+.debug_info     0x00000000      0xe8f
+ .debug_info    0x00000000      0x16c /tmp/ccoMA8up.o
+ .debug_info    0x0000016c      0x68e /tmp/ccNqA6AK.o
+ .debug_info    0x000007fa      0x695 /tmp/ccyOJUJa.o
+
+.debug_abbrev   0x00000000      0x60f
+ .debug_abbrev  0x00000000       0xeb /tmp/ccoMA8up.o
+ .debug_abbrev  0x000000eb      0x238 /tmp/ccNqA6AK.o
+ .debug_abbrev  0x00000323      0x2ec /tmp/ccyOJUJa.o
+
+.debug_loc      0x00000000      0xbb2
+ .debug_loc     0x00000000       0x67 /tmp/ccoMA8up.o
+ .debug_loc     0x00000067      0x4fc /tmp/ccNqA6AK.o
+ .debug_loc     0x00000563      0x64f /tmp/ccyOJUJa.o
+
+.debug_aranges  0x00000000       0x68
+ .debug_aranges
+                0x00000000       0x20 /tmp/ccoMA8up.o
+ .debug_aranges
+                0x00000020       0x28 /tmp/ccNqA6AK.o
+ .debug_aranges
+                0x00000048       0x20 /tmp/ccyOJUJa.o
+
+.debug_line     0x00000000      0x67e
+ .debug_line    0x00000000       0xed /tmp/ccoMA8up.o
+ .debug_line    0x000000ed      0x29f /tmp/ccNqA6AK.o
+ .debug_line    0x0000038c      0x2f2 /tmp/ccyOJUJa.o
+
+.debug_str      0x00000000      0x398
+ .debug_str     0x00000000      0x1c7 /tmp/ccoMA8up.o
+                                0x20c (size before relaxing)
+ .debug_str     0x000001c7       0xd5 /tmp/ccNqA6AK.o
+                                0x26a (size before relaxing)
+ .debug_str     0x0000029c       0xfc /tmp/ccyOJUJa.o
+                                0x2ce (size before relaxing)
+
+.comment        0x00000000       0x6e
+ .comment       0x00000000       0x6e /tmp/ccoMA8up.o
+                                 0x6f (size before relaxing)
+ .comment       0x0000006e       0x6f /tmp/ccNqA6AK.o
+ .comment       0x0000006e       0x6f /tmp/ccyOJUJa.o
+
+.ARM.attributes
+                0x00000000       0x39
+ .ARM.attributes
+                0x00000000       0x39 /tmp/ccoMA8up.o
+ .ARM.attributes
+                0x00000039       0x39 /tmp/ccNqA6AK.o
+ .ARM.attributes
+                0x00000072       0x39 /tmp/ccyOJUJa.o
+
+.debug_frame    0x00000000      0x30c
+ .debug_frame   0x00000000       0x30 /tmp/ccoMA8up.o
+ .debug_frame   0x00000030      0x11c /tmp/ccNqA6AK.o
+ .debug_frame   0x0000014c      0x1c0 /tmp/ccyOJUJa.o
+
+.debug_ranges   0x00000000      0x110
+ .debug_ranges  0x00000000       0x58 /tmp/ccNqA6AK.o
+ .debug_ranges  0x00000058       0xb8 /tmp/ccyOJUJa.o
+
+Cross Reference Table
+
+Symbol                                            File
+ADCValue                                          /tmp/ccNqA6AK.o
+ADC_ISR                                           /tmp/ccNqA6AK.o
+                                                  /tmp/ccoMA8up.o
+BSS_END                                           /tmp/ccoMA8up.o
+BSS_START                                         /tmp/ccoMA8up.o
+ComBusy                                           /tmp/ccyOJUJa.o
+ComError                                          /tmp/ccyOJUJa.o
+ComOpen                                           /tmp/ccyOJUJa.o
+ComRXBuffer                                       /tmp/ccyOJUJa.o
+ComTXBuffer                                       /tmp/ccyOJUJa.o
+Default_Handler                                   /tmp/ccoMA8up.o
+GetBuf                                            /tmp/ccyOJUJa.o
+GetBufCount                                       /tmp/ccyOJUJa.o
+HexDigit                                          /tmp/ccyOJUJa.o
+INIT_DATA_END                                     /tmp/ccoMA8up.o
+INIT_DATA_START                                   /tmp/ccoMA8up.o
+INIT_DATA_VALUES                                  /tmp/ccoMA8up.o
+PutBuf                                            /tmp/ccyOJUJa.o
+ReadCom                                           /tmp/ccyOJUJa.o
+Vectors                                           /tmp/ccoMA8up.o
+WriteCom                                          /tmp/ccyOJUJa.o
+a                                                 /tmp/ccNqA6AK.o
+available                                         /tmp/ccyOJUJa.o
+b                                                 /tmp/ccNqA6AK.o
+bytesAvailable                                    /tmp/ccyOJUJa.o
+configPins                                        /tmp/ccNqA6AK.o
+delay                                             /tmp/ccNqA6AK.o
+displayRegisters                                  /tmp/ccNqA6AK.o
+egets                                             /tmp/ccyOJUJa.o
+eputs                                             /tmp/ccyOJUJa.o
+                                                  /tmp/ccNqA6AK.o
+filter                                            /tmp/ccNqA6AK.o
+init                                              /tmp/ccoMA8up.o
+initADC                                           /tmp/ccNqA6AK.o
+initClocks                                        /tmp/ccNqA6AK.o
+initDAC                                           /tmp/ccNqA6AK.o
+initFPU                                           /tmp/ccNqA6AK.o
+initFilter                                        /tmp/ccNqA6AK.o
+initUART                                          /tmp/ccyOJUJa.o
+                                                  /tmp/ccNqA6AK.o
+isr_usart2                                        /tmp/ccyOJUJa.o
+                                                  /tmp/ccoMA8up.o
+main                                              /tmp/ccNqA6AK.o
+                                                  /tmp/ccoMA8up.o
+printHex                                          /tmp/ccyOJUJa.o
+                                                  /tmp/ccNqA6AK.o
+transmitting                                      /tmp/ccyOJUJa.o
+                                                  /tmp/ccNqA6AK.o
+usart_rx                                          /tmp/ccyOJUJa.o
+usart_tx                                          /tmp/ccyOJUJa.o
+writeDAC                                          /tmp/ccNqA6AK.o
+x                                                 /tmp/ccNqA6AK.o
+y                                                 /tmp/ccNqA6AK.o
