@@ -940,3 +940,4 @@
 #define SHPR3           REGISTER_32(SCB_BASE + 0xed20)
 #define SHCSR           REGISTER_32(SCB_BASE + 0xed24)
 #define DFSR            REGISTER_32(SCB_BASE + 0xed30)
+#define CPAC            REGISTER_32(SCB_BASE + 0xed88)
