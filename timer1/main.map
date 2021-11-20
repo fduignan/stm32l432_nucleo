@@ -1,0 +1,226 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+flash            0x0000000008000000 0x0000000000040000
+sram1            0x0000000020000000 0x000000000000c000
+sram2            0x0000000010000000 0x0000000000004000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /tmp/cchH4X9M.o
+LOAD /tmp/cc2PXUa6.o
+LOAD /tmp/ccijtau4.o
+LOAD /tmp/ccO1mqIq.o
+LOAD /usr/local/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v7e-m/nofp/libgcc.a
+START GROUP
+LOAD /usr/local/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v7e-m/nofp/libgcc.a
+LOAD /usr/local/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg.a
+LOAD /usr/local/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a
+END GROUP
+                0x0000000008000000                . = ORIGIN (flash)
+
+.text           0x0000000008000000      0x758
+ *(.vectors)
+ .vectors       0x0000000008000000      0x18c /tmp/cchH4X9M.o
+                0x0000000008000000                Vectors
+ *(.text)
+ .text          0x000000000800018c       0x98 /tmp/cchH4X9M.o
+                0x000000000800018c                Default_Handler
+                0x000000000800018e                initClocks
+                0x00000000080001d8                init
+ .text          0x0000000008000224       0x48 /tmp/cc2PXUa6.o
+                0x0000000008000224                delay
+                0x0000000008000236                main
+ .text          0x000000000800026c      0x394 /tmp/ccijtau4.o
+                0x000000000800026c                initUART2
+                0x0000000008000360                PutBuf
+                0x0000000008000390                usart_rx
+                0x00000000080003b4                GetBuf
+                0x00000000080003da                ReadCom
+                0x000000000800042c                WriteCom
+                0x0000000008000498                usart_tx
+                0x00000000080004ec                USART2_Handler
+                0x0000000008000514                GetBufCount
+                0x0000000008000518                available
+                0x0000000008000528                eputs
+                0x000000000800055c                egets
+                0x00000000080005b8                HexDigit
+                0x00000000080005c4                printHex
+                0x00000000080005f4                bytesAvailable
+ .text          0x0000000008000600      0x158 /tmp/ccO1mqIq.o
+                0x0000000008000600                initTimer
+                0x00000000080006f0                TIM1_UE_Handler
+
+.glue_7         0x0000000008000758        0x0
+ .glue_7        0x0000000008000758        0x0 linker stubs
+
+.glue_7t        0x0000000008000758        0x0
+ .glue_7t       0x0000000008000758        0x0 linker stubs
+
+.vfp11_veneer   0x0000000008000758        0x0
+ .vfp11_veneer  0x0000000008000758        0x0 linker stubs
+
+.v4_bx          0x0000000008000758        0x0
+ .v4_bx         0x0000000008000758        0x0 linker stubs
+
+.iplt           0x0000000008000758        0x0
+ .iplt          0x0000000008000758        0x0 /tmp/cchH4X9M.o
+
+.rel.dyn        0x0000000008000758        0x0
+ .rel.iplt      0x0000000008000758        0x0 /tmp/cchH4X9M.o
+
+.rodata         0x0000000008000758      0x7d6
+ .rodata        0x0000000008000758      0x7d6 /tmp/ccO1mqIq.o
+                0x0000000008000758                SineArray
+                0x0000000008000f28                SampleCount
+                0x0000000008000f2c                ScaleFactor
+                0x0000000020000000                . = ORIGIN (sram1)
+
+.data           0x0000000020000000        0x4 load address 0x0000000008000f2e
+                0x0000000008000f2e                INIT_DATA_VALUES = LOADADDR (.data)
+                0x0000000020000000                INIT_DATA_START = .
+ *(.data)
+ .data          0x0000000020000000        0x0 /tmp/cchH4X9M.o
+ .data          0x0000000020000000        0x0 /tmp/cc2PXUa6.o
+ .data          0x0000000020000000        0x0 /tmp/ccijtau4.o
+ .data          0x0000000020000000        0x4 /tmp/ccO1mqIq.o
+                0x0000000020000000                SampleCounter2
+                0x0000000020000004                INIT_DATA_END = .
+                0x0000000020000004                BSS_START = .
+
+.igot.plt       0x0000000020000004        0x0 load address 0x0000000008000f32
+ .igot.plt      0x0000000020000004        0x0 /tmp/cchH4X9M.o
+
+.bss            0x0000000020000004       0xa8 load address 0x0000000008000f32
+ *(.bss)
+ .bss           0x0000000020000004        0x0 /tmp/cchH4X9M.o
+ .bss           0x0000000020000004        0x0 /tmp/cc2PXUa6.o
+ .bss           0x0000000020000004       0xa4 /tmp/ccijtau4.o
+                0x0000000020000004                ComRXBuffer
+                0x0000000020000050                ComTXBuffer
+                0x000000002000009c                ComOpen
+                0x00000000200000a0                ComError
+                0x00000000200000a4                ComBusy
+ .bss           0x00000000200000a8        0x4 /tmp/ccO1mqIq.o
+                0x00000000200000a8                SampleCounter1
+                0x00000000200000ac                BSS_END = .
+OUTPUT(main.elf elf32-littlearm)
+LOAD linker stubs
+
+.debug_info     0x0000000000000000     0x1f05
+ .debug_info    0x0000000000000000      0x4a6 /tmp/cchH4X9M.o
+ .debug_info    0x00000000000004a6      0x3e1 /tmp/cc2PXUa6.o
+ .debug_info    0x0000000000000887      0xd5f /tmp/ccijtau4.o
+ .debug_info    0x00000000000015e6      0x91f /tmp/ccO1mqIq.o
+
+.debug_abbrev   0x0000000000000000      0x66b
+ .debug_abbrev  0x0000000000000000      0x15a /tmp/cchH4X9M.o
+ .debug_abbrev  0x000000000000015a      0x100 /tmp/cc2PXUa6.o
+ .debug_abbrev  0x000000000000025a      0x2e3 /tmp/ccijtau4.o
+ .debug_abbrev  0x000000000000053d      0x12e /tmp/ccO1mqIq.o
+
+.debug_loc      0x0000000000000000      0x637
+ .debug_loc     0x0000000000000000       0xb1 /tmp/cchH4X9M.o
+ .debug_loc     0x00000000000000b1      0x586 /tmp/ccijtau4.o
+
+.debug_aranges  0x0000000000000000       0x80
+ .debug_aranges
+                0x0000000000000000       0x20 /tmp/cchH4X9M.o
+ .debug_aranges
+                0x0000000000000020       0x20 /tmp/cc2PXUa6.o
+ .debug_aranges
+                0x0000000000000040       0x20 /tmp/ccijtau4.o
+ .debug_aranges
+                0x0000000000000060       0x20 /tmp/ccO1mqIq.o
+
+.debug_line     0x0000000000000000      0xb73
+ .debug_line    0x0000000000000000      0x1d3 /tmp/cchH4X9M.o
+ .debug_line    0x00000000000001d3      0x183 /tmp/cc2PXUa6.o
+ .debug_line    0x0000000000000356      0x5b9 /tmp/ccijtau4.o
+ .debug_line    0x000000000000090f      0x264 /tmp/ccO1mqIq.o
+
+.debug_str      0x0000000000000000      0x6a7
+ .debug_str     0x0000000000000000      0x311 /tmp/cchH4X9M.o
+                                        0x360 (size before relaxing)
+ .debug_str     0x0000000000000311       0x5b /tmp/cc2PXUa6.o
+                                        0x2eb (size before relaxing)
+ .debug_str     0x000000000000036c      0x252 /tmp/ccijtau4.o
+                                        0x532 (size before relaxing)
+ .debug_str     0x00000000000005be       0xe9 /tmp/ccO1mqIq.o
+                                        0x4a4 (size before relaxing)
+
+.comment        0x0000000000000000       0x4d
+ .comment       0x0000000000000000       0x4d /tmp/cchH4X9M.o
+                                         0x4e (size before relaxing)
+ .comment       0x000000000000004d       0x4e /tmp/cc2PXUa6.o
+ .comment       0x000000000000004d       0x4e /tmp/ccijtau4.o
+ .comment       0x000000000000004d       0x4e /tmp/ccO1mqIq.o
+
+.ARM.attributes
+                0x0000000000000000       0x2e
+ .ARM.attributes
+                0x0000000000000000       0x2e /tmp/cchH4X9M.o
+ .ARM.attributes
+                0x000000000000002e       0x2e /tmp/cc2PXUa6.o
+ .ARM.attributes
+                0x000000000000005c       0x2e /tmp/ccijtau4.o
+ .ARM.attributes
+                0x000000000000008a       0x2e /tmp/ccO1mqIq.o
+
+.debug_frame    0x0000000000000000      0x260
+ .debug_frame   0x0000000000000000       0x48 /tmp/cchH4X9M.o
+ .debug_frame   0x0000000000000048       0x40 /tmp/cc2PXUa6.o
+ .debug_frame   0x0000000000000088      0x1a8 /tmp/ccijtau4.o
+ .debug_frame   0x0000000000000230       0x30 /tmp/ccO1mqIq.o
+
+.debug_ranges   0x0000000000000000       0x30
+ .debug_ranges  0x0000000000000000       0x30 /tmp/ccijtau4.o
+
+Cross Reference Table
+
+Symbol                                            File
+BSS_END                                           /tmp/cchH4X9M.o
+BSS_START                                         /tmp/cchH4X9M.o
+ComBusy                                           /tmp/ccijtau4.o
+ComError                                          /tmp/ccijtau4.o
+ComOpen                                           /tmp/ccijtau4.o
+ComRXBuffer                                       /tmp/ccijtau4.o
+ComTXBuffer                                       /tmp/ccijtau4.o
+Default_Handler                                   /tmp/cchH4X9M.o
+GetBuf                                            /tmp/ccijtau4.o
+GetBufCount                                       /tmp/ccijtau4.o
+HexDigit                                          /tmp/ccijtau4.o
+INIT_DATA_END                                     /tmp/cchH4X9M.o
+INIT_DATA_START                                   /tmp/cchH4X9M.o
+INIT_DATA_VALUES                                  /tmp/cchH4X9M.o
+PutBuf                                            /tmp/ccijtau4.o
+ReadCom                                           /tmp/ccijtau4.o
+SampleCount                                       /tmp/ccO1mqIq.o
+SampleCounter1                                    /tmp/ccO1mqIq.o
+SampleCounter2                                    /tmp/ccO1mqIq.o
+ScaleFactor                                       /tmp/ccO1mqIq.o
+SineArray                                         /tmp/ccO1mqIq.o
+TIM1_UE_Handler                                   /tmp/ccO1mqIq.o
+                                                  /tmp/cchH4X9M.o
+USART2_Handler                                    /tmp/ccijtau4.o
+                                                  /tmp/cchH4X9M.o
+Vectors                                           /tmp/cchH4X9M.o
+WriteCom                                          /tmp/ccijtau4.o
+available                                         /tmp/ccijtau4.o
+bytesAvailable                                    /tmp/ccijtau4.o
+delay                                             /tmp/cc2PXUa6.o
+egets                                             /tmp/ccijtau4.o
+eputs                                             /tmp/ccijtau4.o
+init                                              /tmp/cchH4X9M.o
+initClocks                                        /tmp/cchH4X9M.o
+initTimer                                         /tmp/ccO1mqIq.o
+                                                  /tmp/cc2PXUa6.o
+initUART2                                         /tmp/ccijtau4.o
+                                                  /tmp/cc2PXUa6.o
+main                                              /tmp/cc2PXUa6.o
+                                                  /tmp/cchH4X9M.o
+printHex                                          /tmp/ccijtau4.o
+usart_rx                                          /tmp/ccijtau4.o
+usart_tx                                          /tmp/ccijtau4.o
